@@ -38,3 +38,34 @@ Route::get('/nomes/{nome}/{numero}',function($nome,$numero){
     };
     return;
 });
+
+
+
+Route::get('/listar-equipas/{chave}', 'App\Http\Controllers\PortalControllers@ListarEquipas');
+
+Route::get('/Welcome/',function(){
+    return view('bemvindo');
+});
+
+Route::get('/nomes1/{nome}/{apelido}',
+          function($nome=null,$apelido=null){
+              return view('mostranome',[
+                  'nome'=>$nome,
+                  'apelido'=>$apelido
+                  
+              ]);
+          });
+Route::get('/tarefas',function(){
+    $tarefas=[
+        'Comprar senha',
+        'Inprimir fotocópias',
+        'Carregar cartão'
+    ];
+    return view ('tarefas',[
+        'tarefas'=>$tarefas
+    ]);
+});
+
+Route::get('/entrada', 'App\Http\Controllers\PortalController@index');
+
+
