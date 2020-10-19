@@ -16,6 +16,17 @@ class Portalcontroller extends Controller
             'Moreirense',
             'Famalicão'
         ];
+        return view('listar-equipas',['equipas'=>$teams]);
         
+    }
+    public function listarEquipa (Request $request){
+        $teams = [
+            'Desportivo das Aves',
+            'Moreirense',
+            'Famalicão'
+        ];
+        //obter o nome da equipa pretendida através do ID
+        $equipa = $teams[$request->chave];
+        return view('listar-equipas',['equipa'=>$equipa]);
     }
 }
